@@ -17,7 +17,7 @@ import io.swagger.v3.oas.annotations.info.License;
 				version = "v1",
 				contact = @Contact(
 						name = "Yugender",
-						email = "tutor@eazybytes.com",
+						email = "Yejarla>yugender.com",
 						url = "https://www.eazybytes.com"
 				),
 				license = @License(
