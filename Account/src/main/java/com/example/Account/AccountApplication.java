@@ -16,7 +16,7 @@ import io.swagger.v3.oas.annotations.info.License;
 				description = "EazyBank Accounts microservice REST API Documentation",
 				version = "v1",
 				contact = @Contact(
-						name = "Madan Reddy",
+						name = "Yugender",
 						email = "tutor@eazybytes.com",
 						url = "https://www.eazybytes.com"
 				),
