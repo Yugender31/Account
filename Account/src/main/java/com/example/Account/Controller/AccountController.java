@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.example.Account.DTO.CustomerDto;
 import com.example.Account.DTO.ResponseDto;
 import com.example.Account.Service.IAccountService;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 
@@ -28,6 +30,7 @@ import lombok.AllArgsConstructor;
 @RestController
 //it is good practise to add producer
 @RequestMapping(path="/api" ,produces = {MediaType.APPLICATION_JSON_VALUE})
+@Validated
 public class AccountController {
 	
 	
@@ -40,7 +43,7 @@ public class AccountController {
 		
 	}
 	@PostMapping("/create")
-	public ResponseEntity<ResponseDto> createAccountDetails(@RequestBody CustomerDto accountReq) {
+	public ResponseEntity<ResponseDto> createAccountDetails(@Valid @RequestBody CustomerDto accountReq) {
 		System.out.println("Customwer:::"+accountReq);
 		accountService.createAccount(accountReq);
 		return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseDto(AccountsConstants.STATUS_200,AccountsConstants.MESSAGE_200));
@@ -54,7 +57,7 @@ public class AccountController {
 	}
 	
 	@PutMapping("/updateCustomer")
-	public ResponseEntity<ResponseDto> upDateCustomer(@RequestBody CustomerDto customer){
+	public ResponseEntity<ResponseDto> upDateCustomer(@Valid @RequestBody CustomerDto customer){
 		System.out.println("Cust:::"+customer);
 		boolean isUpdated=accountService.updateAccount(customer);
 		if(isUpdated) {
@@ -64,7 +67,7 @@ public class AccountController {
 		}
 	}
 
-	@DeleteMapping("/delete")
+	@DeleteMapping("/dele")
 	public ResponseEntity<ResponseDto> getCust(@RequestParam String mobileNumber){
 		System.out.println("MobileNumber::"+mobileNumber);
 		boolean isUpdated=accountService.delete(mobileNumber);
