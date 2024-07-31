@@ -33,6 +33,7 @@ import io.swagger.v3.oas.annotations.info.License;
 public class AccountApplication {
 
 	public static void main(String[] args) {
+		//In to the master
 		SpringApplication.run(AccountApplication.class, args);
 	}
 
