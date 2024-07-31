@@ -44,7 +44,7 @@ public class AccountController {
 	}
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDto> createAccountDetails(@Valid @RequestBody CustomerDto accountReq) {
-		System.out.println("Customwer:::"+accountReq);
+		System.out.println("Customwer:::::;"+accountReq);
 		accountService.createAccount(accountReq);
 		return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseDto(AccountsConstants.STATUS_200,AccountsConstants.MESSAGE_200));
 		
